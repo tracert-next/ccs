@@ -1,7 +1,7 @@
 {
     "name": "CNPPlatformList", 
     "logoURI": "http://www.cnpfound.com/cnp/CCS.png", 
-    "timestamp": 1610339529000, 
+    "timestamp": 1744625325000,
     "tokens": [
         {
             "chainId": 1, 
@@ -16,6 +16,6 @@
         { 
             "major": 1, 
             "minor": 0, 
-            "patch": 0 
+            "patch": 1 
         }
    }
