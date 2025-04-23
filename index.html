@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>D-Day 카운트다운</title>
+<style>
+  #dday {
+    font-size: 2em;
+  }
+</style>
+</head>
+<body>
+
+<div id="dday"></div>
+
+<script>
+  function countdown() {
+    // 목표 날짜를 설정하세요 (YYYY-MM-DD HH:MM:SS 형식)
+    const targetDate = new Date("2025-04-25 00:00:00").getTime();
+
+    // 현재 시간을 얻습니다.
+    const now = new Date().getTime();
+
+    // 남은 시간을 밀리초 단위로 계산합니다.
+    const timeLeft = targetDate - now;
+
+    if (timeLeft < 0) {
+      document.getElementById("dday").innerText = "D-Day!";
+      clearInterval(intervalId); // 시간이 지나면 인터벌을 멈춥니다.
+      return;
+    }
+
+    // 남은 시간을 초, 분, 시, 일로 변환합니다.
+    const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+    // 결과를 HTML 요소에 표시합니다.
+    document.getElementById("dday").innerText = `${days}일 ${hours}시간 ${minutes}분 ${seconds}초 남았습니다.`;
+  }
+
+  // 1초마다 countdown 함수를 실행합니다.
+  const intervalId = setInterval(countdown, 1000);
+
+  // 페이지가 로드될 때 초기 실행합니다.
+  countdown();
+</script>
+
+</body>
+</html>
